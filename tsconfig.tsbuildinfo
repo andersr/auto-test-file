@@ -109,8 +109,24 @@
         "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
         "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
       },
+      "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts": {
+        "version": "e2790204f9394425bf7d8e93a919887823d03dc2830d31d09c8f6af5562634dd",
+        "signature": "e2790204f9394425bf7d8e93a919887823d03dc2830d31d09c8f6af5562634dd"
+      },
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getclioptions.ts": {
+        "version": "7d89cbdec960c606a70b10ae5248b36863ac3adb9600a33a7d9841fc1508eb2c",
+        "signature": "3a3924647147e3aed6a49c1e99b37fe3c5f48502b0969aab8a318fa020f6459e"
+      },
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getwatchglob.ts": {
+        "version": "f352972b0f035951f01c21a5fb8e5d629936b5b8ff39268c7e23564ba5bbaf26",
+        "signature": "e414584f2dd56e47a8fee6a4e8a661f24028257812f02af3da61badd46f8ef02"
+      },
       "/users/andersjramsay/dev/testing_project/ctf_util/src/index.ts": {
-        "version": "844867d7e312938fcdb5a95d23c595e39479742ca5dee29796fe2755cef3b6dc",
+        "version": "3f95a7edfe0df8a32d485d8f9d86223f113751fad10ac3b1b378855d687acec5",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/messages.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@babel/types/lib/index.d.ts": {
@@ -485,7 +501,27 @@
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getclioptions.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getwatchglob.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/andersjramsay/dev/testing_project/ctf_util/src/index.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getclioptions.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getwatchglob.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/messages.ts": [
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -941,6 +977,16 @@
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getclioptions.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts"
+      ],
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getwatchglob.ts": [
+        "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts"
+      ],
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@babel/types/lib/index.d.ts": [
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/util.d.ts",
         "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1312,6 +1358,10 @@
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
+      "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/command-line-args/index.d.ts",
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getwatchglob.ts",
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/index.ts",
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/messages.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@babel/types/lib/index.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/babel__generator/index.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/babel__traverse/index.d.ts",
@@ -1371,7 +1421,7 @@
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/node/ts3.2/index.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/stack-utils/index.d.ts",
       "/users/andersjramsay/dev/testing_project/ctf_util/node_modules/@types/yargs/index.d.ts",
-      "/users/andersjramsay/dev/testing_project/ctf_util/src/index.ts"
+      "/users/andersjramsay/dev/testing_project/ctf_util/src/lib/getclioptions.ts"
     ]
   },
   "version": "3.5.2"
