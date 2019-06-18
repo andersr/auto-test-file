@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "ctf": "bin/cli"
+  },
   "scripts": {
     "dev": "yarn tsc:watch && yarn test:watch",
     "tsc:watch": "tsc -w",
