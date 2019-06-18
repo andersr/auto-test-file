@@ -1,0 +1,26 @@
+// created from 'create-ts-index'
+
+{
+  addNewline: true,
+  excludes: [
+    'dist',
+    'bin',
+    'node_modules',
+    'tmp'
+  ],
+  fileExcludePatterns: [".test"],
+  fileFirst: true,
+  globOptions: {
+    dot: false,
+    nonull: true,
+  },
+  includeCWD: true,
+  quote: '"',
+  targetExts: [
+    'ts',
+    'tsx',
+  ],
+  useSemicolon: true,
+  useTimestamp: false,
+  verbose: false,
+}

@@ -7,19 +7,27 @@
     "ctf": "bin/cli"
   },
   "scripts": {
-    "dev": "yarn tsc:watch && yarn test:watch",
+    "dev": "yarn clean && yarn tsc:watch",
+    "clean": "rimraf dist",
     "tsc:watch": "tsc -w",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "tsindex": "cti clean ./src && cti create ./src",
+    "tsindex:watch": "chokidar './src/**/*.ts' -i '/test|index/' -c 'yarn tsindex' "
   },
   "devDependencies": {
     "@types/command-line-args": "^5.0.0",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.8",
+    "chokidar-cli": "^1.2.2",
+    "create-ts-index": "^1.9.1",
     "jest": "^24.8.0",
+    "rimraf": "^2.6.3",
+    "ts-cleaner": "^1.0.2",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "command-line-args": "^5.1.1"
+    "command-line-args": "^5.1.1",
+    "concurrently": "^4.1.0"
   }
 }

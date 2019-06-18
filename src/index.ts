@@ -1,11 +1,4 @@
-import { getCliOptions } from "./lib/getCliOptions";
-import { getWatchGlob } from "./lib/getWatchGlob";
+// created from 'create-ts-index'
 
-console.log("hello world!");
-
-const options = getCliOptions();
-
-if (options) {
-    const watchGlob = getWatchGlob(options);
-    console.log('watchGlob: ', watchGlob);
-}
+export * from './lib';
+export * from './main';
