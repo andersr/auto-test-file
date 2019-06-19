@@ -5,7 +5,3 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./createTestFile"));
-__export(require("./dirWatcher"));
-__export(require("./getCliOptions"));
-__export(require("./removeExtension"));
-__export(require("./setTestFileContent"));

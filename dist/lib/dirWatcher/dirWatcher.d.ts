@@ -1,1 +1,1 @@
-export declare const dirWatcher: (glob: string, extensions: string[]) => void;
+export declare const dirWatcher: (directory: string, extensions: string[]) => void;

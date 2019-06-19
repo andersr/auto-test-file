@@ -1,11 +1,9 @@
-import { getCliOptions } from "./lib/getCliOptions";
-import { getWatchGlob } from "./lib/getWatchGlob";
-
-console.log("hello world!");
+import { getCliOptions, dirWatcher } from "./lib";
 
 const options = getCliOptions();
 
 if (options) {
-    const watchGlob = getWatchGlob(options);
-    console.log('watchGlob: ', watchGlob);
+  if (options && options.directory && options.extensions) {
+    dirWatcher(options.directory, options.extensions);
+  }
 }

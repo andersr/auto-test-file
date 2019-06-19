@@ -1,39 +1,30 @@
-import { getFileName } from "./getFileName";
-import { createTestFile } from "./createTestFile";
-// import nodepath from "path";
+import chokidar, { FSWatcher } from "chokidar";
+import { createTestFile } from "../createTestFile";
 
-export const dirWatcher = (glob: string, extensions: string[]) => {
-    var chokidar = require("chokidar");
-    // /^\.\w+|\.test\.|index\./
-    var watcher = chokidar.watch(glob, {
-        ignored: [/\.test\./, /index\./, /^\.\w+/],
-        ignoreInitial: true,
-        persistent: true
-    });
+const DEFAULT_WATCH_IGNORE = [/node_modules/, /\.test\./, /index\./, /^\.\w+/];
 
-    function onWatcherReady() {
-        console.info(`Watching "${glob}"`);
-    }
+const WATCHER_CONFIG = {
+  ignored: DEFAULT_WATCH_IGNORE,
+  ignoreInitial: true,
+  persistent: true
+};
 
-    // Declare the listeners of the watcher
-    watcher
-        .on('ready', onWatcherReady)
-        .on('add', function (path: string) {
-            console.log('File', path, 'has been added');
+const onWatcherReady = (watcher: FSWatcher) => {
+  const paths = watcher.getWatched();
+  console.info(`Watching "${Object.keys(paths)}"`);
+};
 
-            const dirparts = path.split("/");
-            console.log('dirparts: ', dirparts.length);
-            const currentDr = dirparts.splice(dirparts.length - 1, 1);
-            console.log('currentPath: ', dirparts);
+const onAdd = (filePath: string) => {
+  console.log("File", filePath, "has been added");
+  createTestFile(filePath);
+};
 
-            const fileName = getFileName(path);
-            const parts = fileName.split(".");
-            // console.log("dir: ", __dirname);
+const setExtensions = (ext: string[]) =>
+  ext.length === 1 ? ext[0] : `{${ext.join("|")}}`;
 
-            console.log('fileName: ', fileName);
-            createTestFile({ path: dirparts.join("/"), fileName })
-        })
-}
+export const dirWatcher = (directory: string, extensions: string[]) => {
+  const watchGlob = `./${directory}/**/*.${setExtensions(extensions)}`;
+  const watcher = chokidar.watch(watchGlob, WATCHER_CONFIG);
 
-
-// StartWatcher("./watchedDir/**/*.{ts|tsx}")
+  watcher.on("ready", () => onWatcherReady(watcher)).on("add", onAdd);
+};

@@ -6,17 +6,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var command_line_args_1 = __importDefault(require("command-line-args"));
 var OPTION_DEFINITIONS = [
     {
-        name: 'directories',
+        name: "directory",
         alias: "d",
-        type: String,
-        multiple: true
+        type: String
     },
     {
-        name: 'extensions',
+        name: "extensions",
         alias: "e",
         type: String,
-        multiple: true,
-    },
+        multiple: true
+    }
 ];
 var CLI_CONFIG = {
     partial: true,
@@ -25,11 +24,17 @@ var CLI_CONFIG = {
 var UNKNOWN_OPTION_MESSAGE = "Unknown option.  Please try again.";
 exports.getCliOptions = function () {
     var options = command_line_args_1.default(OPTION_DEFINITIONS, CLI_CONFIG);
-    console.log('options: ', options);
     if (options._unknown) {
         console.log(UNKNOWN_OPTION_MESSAGE);
-        // just return?
-        return undefined;
+        return;
+    }
+    if (!options.directories) {
+        console.log("Please include one or more directories to watch.");
+        return;
+    }
+    if (!options.extensions) {
+        console.log("Please include one or more file types to watch.");
+        return;
     }
     return options;
 };
