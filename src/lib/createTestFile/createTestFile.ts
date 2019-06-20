@@ -1,7 +1,7 @@
 import createFile from "create-file";
 import path from "path";
-import { removeExtension } from "../removeExtension";
 import { setTestFileContent } from "../setTestFileContent";
+import { removeExtension } from "../removeExtension";
 
 export const createTestFile = (filePath: string) => {
   const fileName = path.basename(filePath);
