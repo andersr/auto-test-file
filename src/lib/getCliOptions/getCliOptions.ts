@@ -1,5 +1,4 @@
 import commandLineArgs, {
-  CommandLineOptions,
   OptionDefinition,
   ParseOptions
 } from "command-line-args";
@@ -27,4 +26,4 @@ const CLI_CONFIG: ParseOptions = {
 export const getCliOptions = (): IOptionResults => commandLineArgs(
   OPTION_DEFINITIONS,
   CLI_CONFIG
-) as IOptionResults;;
+) as IOptionResults;

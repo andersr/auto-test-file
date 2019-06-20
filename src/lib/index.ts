@@ -6,4 +6,5 @@ export * from './getCliOptions';
 export * from './messages';
 export * from './optionsValid';
 export * from './removeExtension';
+export * from './setExtensionsGlob';
 export * from './setTestFileContent';

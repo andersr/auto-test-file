@@ -1,6 +1,8 @@
 import chokidar, { FSWatcher } from "chokidar";
 import { createTestFile } from "../createTestFile";
+import { setExtensionsGlob } from "../setExtensionsGlob";
 
+// ignore node_modules .test. and dot files
 const DEFAULT_WATCH_IGNORE = [/node_modules/, /\.test\./, /index\./, /^\.\w+/];
 
 const WATCHER_CONFIG = {
@@ -19,11 +21,8 @@ const onAdd = (filePath: string) => {
   createTestFile(filePath);
 };
 
-const setExtensions = (ext: string[]) =>
-  ext.length === 1 ? ext[0] : `{${ext.join("|")}}`;
-
 export const dirWatcher = (directory: string, extensions: string[]) => {
-  const watchGlob = `./${directory}/**/*.${setExtensions(extensions)}`;
+  const watchGlob = `./${directory}/**/*.${setExtensionsGlob(extensions)}`;
   const watcher = chokidar.watch(watchGlob, WATCHER_CONFIG);
 
   watcher.on("ready", () => onWatcherReady(watcher)).on("add", onAdd);
