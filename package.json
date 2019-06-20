@@ -1,16 +1,17 @@
 {
-  "name": "ctf_util",
+  "name": "auto-test-file",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "ctf": "bin/cli"
+    "atf": "bin/cli"
   },
   "scripts": {
     "dev": "yarn clean && yarn tsc:watch",
     "clean": "rimraf dist",
-    "tsc:watch": "tsc -w",
+    "test": "jest",
     "test:watch": "jest --watch",
+    "tsc:watch": "tsc -w",
     "tsindex": "cti clean ./src && cti create ./src",
     "tsindex:watch": "chokidar './src/**/*.ts' -i '/test|index/' -c 'yarn tsindex' "
   },
