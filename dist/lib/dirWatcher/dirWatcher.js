@@ -18,7 +18,7 @@ var onWatcherReady = function (watcher) {
     console.info("Watching \"" + Object.keys(paths) + "\"");
 };
 var onAdd = function (filePath) {
-    console.log("File", filePath, "has been added");
+    // console.log("File", filePath, "has been added");
     createTestFile_1.createTestFile(filePath);
 };
 exports.dirWatcher = function (directory, extensions) {

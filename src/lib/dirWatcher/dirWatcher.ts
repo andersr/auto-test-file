@@ -17,7 +17,7 @@ const onWatcherReady = (watcher: FSWatcher) => {
 };
 
 const onAdd = (filePath: string) => {
-  console.log("File", filePath, "has been added");
+  // console.log("File", filePath, "has been added");
   createTestFile(filePath);
 };
 
