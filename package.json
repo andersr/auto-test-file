@@ -1,7 +1,7 @@
 {
   "name": "auto-test-file",
   "description": "Auto-generate test files in a watched folder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
+    "chokidar": "^3.0.1",
     "command-line-args": "^5.1.1",
     "concurrently": "^4.1.0",
     "create-file": "^1.0.1"
