@@ -1,2 +1,7 @@
-import commandLineArgs from "command-line-args";
-export declare const getCliOptions: () => commandLineArgs.CommandLineOptions | undefined;
+interface IOptionResults {
+    _unknown?: string[];
+    directory: string;
+    extensions: string[];
+}
+export declare const getCliOptions: () => void | IOptionResults;
+export {};

@@ -3,6 +3,7 @@ import commandLineArgs, {
   OptionDefinition,
   ParseOptions
 } from "command-line-args";
+import { IOptionResults } from "../../models";
 
 const OPTION_DEFINITIONS: OptionDefinition[] = [
   {
@@ -23,25 +24,7 @@ const CLI_CONFIG: ParseOptions = {
   stopAtFirstUnknown: true
 };
 
-const UNKNOWN_OPTION_MESSAGE = "Unknown option.  Please try again.";
-
-export const getCliOptions = (): CommandLineOptions | undefined => {
-  const options = commandLineArgs(OPTION_DEFINITIONS, CLI_CONFIG);
-
-  if (options._unknown) {
-    console.log(UNKNOWN_OPTION_MESSAGE);
-    return;
-  }
-
-  if (!options.directories) {
-    console.log("Please include one or more directories to watch.");
-    return;
-  }
-
-  if (!options.extensions) {
-    console.log("Please include one or more file types to watch.");
-    return;
-  }
-
-  return options;
-};
+export const getCliOptions = (): IOptionResults => commandLineArgs(
+  OPTION_DEFINITIONS,
+  CLI_CONFIG
+) as IOptionResults;;

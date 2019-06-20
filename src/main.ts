@@ -1,9 +1,7 @@
-import { getCliOptions, dirWatcher } from "./lib";
+import { getCliOptions, dirWatcher, optionsValid } from "./lib";
 
 const options = getCliOptions();
 
-if (options) {
-  if (options && options.directory && options.extensions) {
-    dirWatcher(options.directory, options.extensions);
-  }
+if (optionsValid(options) {
+  dirWatcher(options.directory, options.extensions);
 }
