@@ -8,3 +8,4 @@ export * from './optionsValid';
 export * from './removeExtension';
 export * from './setExtensionsGlob';
 export * from './setTestFileContent';
+export * from './setTestFilePath';

@@ -1,1 +1,2 @@
-export declare const optionsValid: (options: any, handler: any) => void;
+import { IOptionResults } from "../../models";
+export declare const optionsValid: (options: IOptionResults) => boolean;

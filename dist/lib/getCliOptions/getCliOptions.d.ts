@@ -1,7 +1,2 @@
-interface IOptionResults {
-    _unknown?: string[];
-    directory: string;
-    extensions: string[];
-}
-export declare const getCliOptions: () => void | IOptionResults;
-export {};
+import { IOptionResults } from "../../models";
+export declare const getCliOptions: () => IOptionResults;

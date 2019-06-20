@@ -2,16 +2,13 @@ import createFile from "create-file";
 import path from "path";
 import { setTestFileContent } from "../setTestFileContent";
 import { removeExtension } from "../removeExtension";
+import { setTestFilePath } from "../setTestFilePath";
 
 export const createTestFile = (filePath: string) => {
-  const fileName = path.basename(filePath);
-  const extension = path.extname(filePath);
-  const noExtension = removeExtension(fileName);
-  const projectDir = process.env.INIT_CWD;
-  const projectPath = `${projectDir}/${path.dirname(filePath)}`;
-  const newFile = `${projectPath}/${noExtension}.test${extension}`;
+  const fileName = removeExtension(path.basename(filePath));
+  const testFilePath = setTestFilePath(filePath, fileName);
 
-  createFile(newFile, setTestFileContent(noExtension), function (err: any) {
+  createFile(testFilePath, setTestFileContent(fileName), function (err: any) {
     if (err) {
       console.log("err: ", err);
     }

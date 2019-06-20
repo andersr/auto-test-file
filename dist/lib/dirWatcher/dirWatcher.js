@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var chokidar_1 = __importDefault(require("chokidar"));
 var createTestFile_1 = require("../createTestFile");
+var setExtensionsGlob_1 = require("../setExtensionsGlob");
+// ignore node_modules .test. and dot files
 var DEFAULT_WATCH_IGNORE = [/node_modules/, /\.test\./, /index\./, /^\.\w+/];
 var WATCHER_CONFIG = {
     ignored: DEFAULT_WATCH_IGNORE,
@@ -19,11 +21,8 @@ var onAdd = function (filePath) {
     console.log("File", filePath, "has been added");
     createTestFile_1.createTestFile(filePath);
 };
-var setExtensions = function (ext) {
-    return ext.length === 1 ? ext[0] : "{" + ext.join("|") + "}";
-};
 exports.dirWatcher = function (directory, extensions) {
-    var watchGlob = "./" + directory + "/**/*." + setExtensions(extensions);
+    var watchGlob = "./" + directory + "/**/*." + setExtensionsGlob_1.setExtensionsGlob(extensions);
     var watcher = chokidar_1.default.watch(watchGlob, WATCHER_CONFIG);
     watcher.on("ready", function () { return onWatcherReady(watcher); }).on("add", onAdd);
 };

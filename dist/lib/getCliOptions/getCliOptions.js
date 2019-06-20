@@ -21,23 +21,4 @@ var CLI_CONFIG = {
     partial: true,
     stopAtFirstUnknown: true
 };
-var UNKNOWN_OPTION_MESSAGE = "Unknown option. Please try again.";
-var NO_DIRECTORY_MESSAGE = "Please include a directory to watch.";
-var NO_EXTENSIONS_MESSAGE = "Please include one or more file types to watch.";
-exports.getCliOptions = function () {
-    var options = command_line_args_1.default(OPTION_DEFINITIONS, CLI_CONFIG);
-    console.log("options: ", options);
-    if (options._unknown) {
-        console.log(UNKNOWN_OPTION_MESSAGE);
-        return;
-    }
-    if (!options.directory) {
-        console.log(NO_DIRECTORY_MESSAGE);
-        return;
-    }
-    if (!options.extensions) {
-        console.log(NO_EXTENSIONS_MESSAGE);
-        return;
-    }
-    return options;
-};
+exports.getCliOptions = function () { return command_line_args_1.default(OPTION_DEFINITIONS, CLI_CONFIG); };

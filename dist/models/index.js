@@ -1,3 +1,3 @@
 "use strict";
+// created from 'create-ts-index'
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateOptions = function (options, handler) { };

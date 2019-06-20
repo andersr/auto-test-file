@@ -1,0 +1,4 @@
+export declare const NO_OPTIONS_MESSAGE = "No options found.  Please check your settings.";
+export declare const UNKNOWN_OPTION_MESSAGE = "Unknown option. Please try again.";
+export declare const NO_DIRECTORY_MESSAGE = "Please include a directory to watch.";
+export declare const NO_EXTENSIONS_MESSAGE = "Please include one or more file types to watch.";
