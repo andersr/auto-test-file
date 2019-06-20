@@ -1,7 +1,22 @@
 {
   "name": "auto-test-file",
+  "description": "Auto-generate test files in a watched folder",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersr/auto-test-file"
+  },
+  "keywords": [
+    "testing",
+    "utility",
+    "javascript"
+  ],
+  "author": "Anders Ramsay",
+  "bugs": {
+    "url": "https://github.com/andersr/auto-test-file/issues"
+  },
+  "homepage": "https://github.com/andersr/auto-test-file/#readme",
   "license": "MIT",
   "bin": {
     "atf": "bin/cli"
