@@ -2,6 +2,8 @@
 
 A cli tool that creates a test file with a placeholder test for matching file extensions in a watched directory.
 
+![atf-demo](https://user-images.githubusercontent.com/819213/59939961-6a537300-9427-11e9-94e1-ba04306c59db.gif)
+
 # Installation
 
 - `npm install auto-test-file`
