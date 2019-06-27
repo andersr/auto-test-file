@@ -1,1 +1,1 @@
-export declare const setTestFileContent: (fileName: string) => string;
+export declare const setTestFileContent: (fileName: string, specs: string[]) => string;

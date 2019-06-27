@@ -1,1 +1,1 @@
-export const removeExtension = (file: string) => file.replace(/\.[^.]*$/, "");
+export const removeExtension = (file: string) => file.replace(/\.[^.]*$/, '');

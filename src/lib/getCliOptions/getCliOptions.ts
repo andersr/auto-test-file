@@ -1,29 +1,34 @@
 import commandLineArgs, {
   OptionDefinition,
-  ParseOptions
-} from "command-line-args";
-import { IOptionResults } from "../../models";
+  ParseOptions,
+} from 'command-line-args';
+import { IConfigOptions } from '../../models';
 
 const OPTION_DEFINITIONS: OptionDefinition[] = [
   {
-    name: "directory",
-    alias: "d",
-    type: String
+    name: 'directory',
+    alias: 'd',
+    type: String,
   },
   {
-    name: "extensions",
-    alias: "e",
+    name: 'extensions',
+    alias: 'e',
     type: String,
-    multiple: true
-  }
+    multiple: true,
+  },
+  {
+    name: 'noSpecInput',
+    type: Boolean,
+    defaultValue: false,
+  },
 ];
 
 const CLI_CONFIG: ParseOptions = {
   partial: true,
-  stopAtFirstUnknown: true
+  stopAtFirstUnknown: true,
 };
 
-export const getCliOptions = (): IOptionResults => commandLineArgs(
+export const getCliOptions = (): IConfigOptions => commandLineArgs(
   OPTION_DEFINITIONS,
-  CLI_CONFIG
-) as IOptionResults;
+  CLI_CONFIG,
+) as IConfigOptions;

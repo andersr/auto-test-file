@@ -1,1 +1,1 @@
-export declare const createTestFile: (filePath: string) => void;
+export declare const createTestFile: (filePath: string, specs: string[]) => void;

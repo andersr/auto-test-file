@@ -4,16 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var create_file_1 = __importDefault(require("create-file"));
-var path_1 = __importDefault(require("path"));
 var setTestFileContent_1 = require("../setTestFileContent");
-var removeExtension_1 = require("../removeExtension");
 var setTestFilePath_1 = require("../setTestFilePath");
-exports.createTestFile = function (filePath) {
-    var fileName = removeExtension_1.removeExtension(path_1.default.basename(filePath));
+var fileNameFromPath_1 = require("../fileNameFromPath/fileNameFromPath");
+exports.createTestFile = function (filePath, specs) {
+    var fileName = fileNameFromPath_1.fileNameFromPath(filePath);
     var testFilePath = setTestFilePath_1.setTestFilePath(filePath, fileName);
-    create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent(fileName), function (err) {
+    create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent(fileName, specs), function (err) {
         if (err) {
-            console.log("err: ", err);
+            console.log('err: ', err);
+        }
+        else {
+            console.log("Test file added for " + fileName);
         }
     });
 };

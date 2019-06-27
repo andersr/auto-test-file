@@ -1,1 +1,1 @@
-declare module "create-file";
+declare module 'create-file';
