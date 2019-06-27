@@ -1,7 +1,5 @@
-import { getCliOptions, dirWatcher, optionsValid } from "./lib";
+import { getCliOptions, cliInit } from './lib';
 
 const options = getCliOptions();
 
-if (optionsValid(options)) {
-  dirWatcher(options.directory, options.extensions);
-}
+cliInit(options);
