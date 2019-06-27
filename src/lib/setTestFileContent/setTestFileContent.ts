@@ -1,13 +1,13 @@
-export const setTestFileContent = (fileName: string) => {
+import { setSpecItems } from '../setTestSpecs';
 
-    return (
-        `import { ${fileName} } from "./${fileName}";
+export const setTestFileContent = (fileName: string, specs: string[]) => {
 
-describe("${fileName}", () => {
-    it("does things", () => {
-        expect.hasAssertions();
-    });
-});    
+  return (
+      `import { ${fileName} } from './${fileName}';
 
-`)
+describe('${fileName}', () => {
+   ${setSpecItems(specs)}
+});
+
+`);
 };

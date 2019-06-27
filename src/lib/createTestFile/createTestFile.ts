@@ -1,16 +1,17 @@
-import createFile from "create-file";
-import path from "path";
-import { setTestFileContent } from "../setTestFileContent";
-import { removeExtension } from "../removeExtension";
-import { setTestFilePath } from "../setTestFilePath";
+import createFile from 'create-file';
+import { setTestFileContent } from '../setTestFileContent';
+import { setTestFilePath } from '../setTestFilePath';
+import { fileNameFromPath } from '../fileNameFromPath/fileNameFromPath';
 
-export const createTestFile = (filePath: string) => {
-  const fileName = removeExtension(path.basename(filePath));
+export const createTestFile = (filePath: string, specs: string[]) => {
+  const fileName = fileNameFromPath(filePath);
   const testFilePath = setTestFilePath(filePath, fileName);
 
-  createFile(testFilePath, setTestFileContent(fileName), function (err: any) {
+  createFile(testFilePath, setTestFileContent(fileName, specs), (err: any) => {
     if (err) {
-      console.log("err: ", err);
+      console.log('err: ', err);
+    } else {
+      console.log(`Test file added for ${fileName}`);
     }
   });
 };

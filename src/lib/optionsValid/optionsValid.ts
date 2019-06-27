@@ -1,7 +1,12 @@
-import { IOptionResults } from "../../models";
-import { UNKNOWN_OPTION_MESSAGE, NO_DIRECTORY_MESSAGE, NO_EXTENSIONS_MESSAGE, NO_OPTIONS_MESSAGE } from "../messages";
+import { IConfigOptions } from '../../models';
+import {
+  UNKNOWN_OPTION_MESSAGE,
+  NO_DIRECTORY_MESSAGE,
+  NO_EXTENSIONS_MESSAGE,
+  NO_OPTIONS_MESSAGE,
+} from '../messages';
 
-export const optionsValid = (options: IOptionResults): boolean => {
+export const optionsValid = (options: IConfigOptions): boolean => {
 
   if (!options) {
     console.log(NO_OPTIONS_MESSAGE);

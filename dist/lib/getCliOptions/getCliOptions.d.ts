@@ -1,2 +1,2 @@
-import { IOptionResults } from "../../models";
-export declare const getCliOptions: () => IOptionResults;
+import { IConfigOptions } from '../../models';
+export declare const getCliOptions: () => IConfigOptions;

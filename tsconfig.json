@@ -5,7 +5,8 @@
     "lib": ["dom", "es6", "es2015", "es2016", "es2017"],
     "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
+    // "rootDir": "src",
+    // "baseUrl": ".",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -16,6 +17,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true
+    // "typeRoots": ["./typings", "./node_modules/@types"]
   },
-  "exclude": ["dist", "tmp", "node_modules", "src/**/*.test.*"]
+  "include": ["src", "typings"],
+  "exclude": ["tmp", "node_modules"]
 }

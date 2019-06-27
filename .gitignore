@@ -35,3 +35,4 @@ node_modules
 yarn-error.log
 tsconfig.tsbuildinfo
 tmp
+coverage

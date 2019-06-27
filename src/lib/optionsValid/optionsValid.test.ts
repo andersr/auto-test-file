@@ -1,54 +1,77 @@
-import { optionsValid } from "./optionsValid";
-import { IOptionResults } from "../../models";
-import { NO_EXTENSIONS_MESSAGE, NO_DIRECTORY_MESSAGE, UNKNOWN_OPTION_MESSAGE } from "../messages";
+import { optionsValid } from './optionsValid';
+import { IConfigOptions } from '../../models';
+import { NO_EXTENSIONS_MESSAGE, NO_DIRECTORY_MESSAGE, UNKNOWN_OPTION_MESSAGE } from '../messages';
 
-
-describe("optionsValid", () => {
+describe('optionsValid', () => {
   const spyLog = jest.spyOn(console, 'log');
 
   beforeEach(() => {
     spyLog.mockReset();
   });
 
-
-  it("it returns true if options is defined AND options has a directory value AND options has one or more extension values", () => {
-    const VALID_OPTIONS: IOptionResults = {
-      directory: "src",
-      extensions: ["ts", "tsx"]
+  it('it returns true if options has a directory and extension value', () => {
+    const VALID_SINGLE_OPTIONS: IConfigOptions = {
+      directory: 'src',
+      extensions: ['ts'],
     };
-    expect(optionsValid(VALID_OPTIONS)).toBeTruthy();
+    expect(optionsValid(VALID_SINGLE_OPTIONS)).toBeTruthy();
+
+    const VALID_MULTI_OPTIONS: IConfigOptions = {
+      directory: 'src',
+      extensions: ['ts', 'tsx'],
+    };
+    expect(optionsValid(VALID_MULTI_OPTIONS)).toBeTruthy();
   });
 
-  it("it returns false if options are undefined", () => {
-    expect(optionsValid(undefined as unknown as IOptionResults)).toBeFalsy();
+  it('it returns false if options are undefined', () => {
+    expect(optionsValid(undefined as unknown as IConfigOptions)).toBeFalsy();
 
   });
-  it("it returns false if there is an _unknown option", () => {
-    const UNKNOWN_OPTION: Partial<IOptionResults> = {
-      _unknown: ["foo"],
-      directory: "src",
-      extensions: ["ts", "tsx"]
+  it('it returns false if there is an _unknown option', () => {
+    const UNKNOWN_OPTION: Partial<IConfigOptions> = {
+      _unknown: ['foo'],
+      directory: 'src',
+      extensions: ['ts', 'tsx'],
     };
-    expect(optionsValid(UNKNOWN_OPTION as IOptionResults)).toBeFalsy();
+    expect(optionsValid(UNKNOWN_OPTION as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(UNKNOWN_OPTION_MESSAGE);
   });
 
-  it("it returns false if there is no directory option", () => {
+  it('it returns false if there is no directory option', () => {
 
-    const NO_DIRECTORY: Partial<IOptionResults> = {
-      extensions: ["ts", "tsx"]
+    const NO_DIRECTORY: Partial<IConfigOptions> = {
+      extensions: ['ts', 'tsx'],
     };
-    expect(optionsValid(NO_DIRECTORY as IOptionResults)).toBeFalsy();
+    expect(optionsValid(NO_DIRECTORY as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(NO_DIRECTORY_MESSAGE);
 
   });
-  it("it returns false if there are no extensions", () => {
+  it('it returns false if there are no extensions', () => {
 
-    const NO_EXTENSIONS: Partial<IOptionResults> = {
-      directory: "src",
+    const NO_EXTENSIONS: Partial<IConfigOptions> = {
+      directory: 'src',
     };
-    expect(optionsValid(NO_EXTENSIONS as IOptionResults)).toBeFalsy();
+    expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
   });
+
+  // it('it defaults askForSpecs to true', () => {
+
+  //   const VALID_SINGLE_OPTIONS: IConfigOptions = {
+  //     directory: 'src',
+  //     extensions: ['ts'],
+  //   };
+  //   expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
+  //   expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
+  // });
+
+  // it('it sets askForSpecs to false if set to false', () => {
+
+  //   const NO_EXTENSIONS: Partial<IConfigOptions> = {
+  //     directory: 'src',
+  //   };
+  //   expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
+  //   expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
+  // });
 
 });
