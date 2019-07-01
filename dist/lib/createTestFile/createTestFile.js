@@ -15,7 +15,7 @@ exports.createTestFile = function (filePath, specs) {
             console.log('err: ', err);
         }
         else {
-            console.log("Test file added for " + fileName);
+            console.log("Test file added for '" + fileName + "'");
         }
     });
 };
