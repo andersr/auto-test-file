@@ -1,7 +1,7 @@
 {
   "name": "auto-test-file",
   "description": "Auto-generate test files in a watched folder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
