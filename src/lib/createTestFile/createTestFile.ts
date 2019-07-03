@@ -11,7 +11,7 @@ export const createTestFile = (filePath: string, specs: string[]) => {
     if (err) {
       console.log('err: ', err);
     } else {
-      console.log(`Test file added for ${fileName}`);
+      console.log(`Test file added for '${fileName}'`);
     }
   });
 };

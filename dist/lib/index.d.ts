@@ -1,7 +1,6 @@
-export * from './cliInit';
 export * from './createTestFile';
-export * from './dirWatcher';
 export * from './fileNameFromPath';
+export * from './fileWatcher';
 export * from './getCliInput';
 export * from './getCliOptions';
 export * from './getSpecsFromInput';
@@ -9,6 +8,7 @@ export * from './handleAddFile';
 export * from './messages';
 export * from './optionsValid';
 export * from './removeExtension';
+export * from './removeQuoteMarks';
 export * from './setExtensionsGlob';
 export * from './setTestFileContent';
 export * from './setTestFilePath';

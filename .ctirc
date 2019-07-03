@@ -8,14 +8,13 @@
     'node_modules',
     'tmp'
   ],
-  fileExcludePatterns: [".test"],
+  fileExcludePatterns: [".test."],
   fileFirst: true,
   globOptions: {
     dot: false,
     nonull: true,
   },
   includeCWD: true,
-  quote: '"',
   targetExts: [
     'ts',
     'tsx',
