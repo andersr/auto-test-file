@@ -20,3 +20,4 @@ __export(require("./setTestFileContent"));
 __export(require("./setTestFilePath"));
 __export(require("./setTestSpecs"));
 __export(require("./setWatchGlob"));
+__export(require("./watcherInit"));
