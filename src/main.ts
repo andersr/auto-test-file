@@ -3,7 +3,6 @@ import glob from 'glob';
 
 const options = getCliOptions();
 
-// TODO: replace cb with async model
 const cliInit = (err: Error | null, matches: string[]) => {
   let initialFiles = [];
   if (err) {
@@ -14,7 +13,7 @@ const cliInit = (err: Error | null, matches: string[]) => {
 };
 
 if (optionsValid(options)) {
- // TODO: confirm that this is a valid directory
+  // TODO: confirm that this is a valid directory
   glob(`${options.directory}/**/*`, cliInit);
 
 }
