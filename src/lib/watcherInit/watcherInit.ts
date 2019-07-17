@@ -2,10 +2,9 @@ import { fileWatcher } from '..';
 import { IConfigOptions } from '../../models';
 
 interface IWatcherInit {
-  err?: Error;
+  err: Error | null;
   options: IConfigOptions;
   matches: string[];
-  cb: any;
 }
 
 export const watcherInit = ({ matches, options, err }: IWatcherInit) => {
