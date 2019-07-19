@@ -22,5 +22,5 @@ export const fileWatcher = (options: IConfigOptions, initialFiles: string[]) => 
     });
 
   // TODO: display on actual ready
-  console.log(`Watching '${options.directory}'`);
+  console.log(`Auto-Test File: Watching '${options.directory}'`);
 };
