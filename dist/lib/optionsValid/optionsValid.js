@@ -11,6 +11,7 @@ exports.optionsValid = function (options) {
         return false;
     }
     if (!options.directory) {
+        // TODO: also confirm that directory exists
         console.log(messages_1.NO_DIRECTORY_MESSAGE);
         return false;
     }

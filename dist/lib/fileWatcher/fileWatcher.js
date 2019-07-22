@@ -14,11 +14,12 @@ exports.fileWatcher = function (options, initialFiles) {
         ignored: DEFAULT_WATCH_IGNORE,
     }, {
         add: function (filePath) {
+            // THIS IS THE POINT WHERE I CARE ABOUT INITIAL FILES
             if (!initialFiles.includes(filePath)) {
                 handleAddFile_1.handleAddFile(filePath, options);
             }
         },
     });
     // TODO: display on actual ready
-    console.log("Auto-Test File: Watching '" + options.directory + "'");
+    console.log("Auto Test File: Watching '" + options.directory + "'");
 };

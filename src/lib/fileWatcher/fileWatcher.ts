@@ -15,12 +15,14 @@ export const fileWatcher = (options: IConfigOptions, initialFiles: string[]) => 
     },
     {
       add(filePath: string) {
+        // THIS IS THE POINT WHERE I CARE ABOUT INITIAL FILES
         if (!initialFiles.includes(filePath)) {
+
           handleAddFile(filePath, options);
         }
       },
     });
 
   // TODO: display on actual ready
-  console.log(`Auto-Test File: Watching '${options.directory}'`);
+  console.log(`Auto Test File: Watching '${options.directory}'`);
 };

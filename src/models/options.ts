@@ -3,4 +3,5 @@ export interface IConfigOptions {
   directory: string;
   extensions: string[];
   noSpecInput?: boolean;
+  template?: string;
 }

@@ -16,4 +16,5 @@ export * from './setTestFileContent';
 export * from './setTestFilePath';
 export * from './setTestSpecs';
 export * from './setWatchGlob';
+export * from './testFileTemplates';
 export * from './watcherInit';

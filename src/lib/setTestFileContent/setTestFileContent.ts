@@ -1,13 +1,13 @@
+import { ITestFile } from '../../';
 import { setSpecItems } from '../setTestSpecs';
 
-export const setTestFileContent = (fileName: string, specs: string[]) => {
-
+export const setTestFileContent = ({ fileName, specs }: ITestFile): string => {
   return (
-      `import { ${fileName} } from './${fileName}';
+    `import { ${fileName} } from './${fileName}';
 
-describe('${fileName}', () => {
-   ${setSpecItems(specs)}
-});
+    describe('${fileName}', () => {
+      ${setSpecItems(specs)}
+    });
 
-`);
+  `);
 };

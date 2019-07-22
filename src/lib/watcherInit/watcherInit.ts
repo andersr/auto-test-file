@@ -1,17 +1,13 @@
 import { fileWatcher } from '..';
 import { IConfigOptions } from '../../models';
+import glob from 'glob';
+import { optionsValid } from '../optionsValid';
 
-interface IWatcherInit {
-  err: Error | null;
-  options: IConfigOptions;
-  matches: string[];
-}
-
-export const watcherInit = ({ matches, options, err }: IWatcherInit) => {
-  let initialFiles = [];
-  if (err) {
-    console.log('Get file paths error: ', err);
+export const watcherInit = (options: IConfigOptions) => {
+  if (!optionsValid(options)) {
+    return;
   }
-  initialFiles = [...matches];
+  // TODO: test with large amount of files
+  const initialFiles = glob.sync(`${options.directory}/**/*`);
   fileWatcher(options, initialFiles);
 };

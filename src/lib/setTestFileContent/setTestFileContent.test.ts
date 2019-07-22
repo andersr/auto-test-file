@@ -5,7 +5,7 @@ const removeWhiteSpace = (str: string) => str.replace(/\s+/g, ' ').trim();
 describe('setTestFileContent', () => {
 
   it('it returns a block of text with a default spec if no specs are passed in', () => {
-    const input = 'myUtil';
+    const fileName = 'myUtil';
     const expected = removeWhiteSpace(`import { myUtil } from './myUtil';
 
     describe('myUtil', () => {
@@ -16,7 +16,7 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent(input, []));
+    const content = removeWhiteSpace(setTestFileContent({ fileName, specs: [] }));
     expect(content).toEqual(expected);
   });
 
@@ -43,7 +43,7 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent(fileName, specs));
+    const content = removeWhiteSpace(setTestFileContent({ fileName, specs }));
     expect(content).toEqual(expected);
   });
 

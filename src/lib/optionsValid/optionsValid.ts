@@ -18,6 +18,7 @@ export const optionsValid = (options: IConfigOptions): boolean => {
   }
 
   if (!options.directory) {
+    // TODO: also confirm that directory exists
     console.log(NO_DIRECTORY_MESSAGE);
     return false;
   }
