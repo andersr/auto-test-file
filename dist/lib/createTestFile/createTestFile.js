@@ -6,13 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var create_file_1 = __importDefault(require("create-file"));
 var setTestFileContent_1 = require("../setTestFileContent");
 var setTestFilePath_1 = require("../setTestFilePath");
-var fileNameFromPath_1 = require("../fileNameFromPath/fileNameFromPath");
-// import { DEFAULT_TEMPLATE } from '../testFileTemplates';
-// import { ITestFile } from '../../models';
+var fileNameFromPath_1 = require("../fileNameFromPath");
 exports.createTestFile = function (filePath, specs) {
     var fileName = fileNameFromPath_1.fileNameFromPath(filePath);
     var testFilePath = setTestFilePath_1.setTestFilePath(filePath, fileName);
-    create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent({ fileName: fileName, specs: specs }), function (err) {
+    create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent(fileName, specs), function (err) {
         if (err) {
             console.log('err: ', err);
         }

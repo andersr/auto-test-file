@@ -1,9 +1,7 @@
 import createFile from 'create-file';
 import { setTestFileContent } from '../setTestFileContent';
 import { setTestFilePath } from '../setTestFilePath';
-import { fileNameFromPath } from '../fileNameFromPath/fileNameFromPath';
-// import { DEFAULT_TEMPLATE } from '../testFileTemplates';
-// import { ITestFile } from '../../models';
+import { fileNameFromPath } from '../fileNameFromPath';
 
 export const createTestFile = (filePath: string, specs: string[]) => {
   const fileName = fileNameFromPath(filePath);
@@ -11,7 +9,7 @@ export const createTestFile = (filePath: string, specs: string[]) => {
 
   createFile(
     testFilePath,
-    setTestFileContent({ fileName, specs }), (err: any) => {
+    setTestFileContent(fileName, specs), (err: any) => {
       if (err) {
         console.log('err: ', err);
       } else {

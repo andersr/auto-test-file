@@ -16,7 +16,7 @@ import { template } from 'lodash';
 export const DEFAULT_TEMPLATE = template(`import { <%= fileName %> } from './<%= fileName %>';
 
 describe('<%= fileName %>', () => {
-   <%=  setSpecItems(specs) %>
+   <%= setSpecItems(specs) %>
 });
 
 `);

@@ -1,2 +1,1 @@
-import { ITestFile } from '../../';
-export declare const setTestFileContent: ({ fileName, specs }: ITestFile) => string;
+export declare const setTestFileContent: (fileName: string, specs: string[]) => string;
