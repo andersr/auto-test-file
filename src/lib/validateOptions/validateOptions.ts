@@ -6,7 +6,7 @@ import {
   NO_OPTIONS_MESSAGE,
 } from '../messages';
 
-export const optionsValid = (options: IConfigOptions): boolean => {
+export const validateOptions = (options: IConfigOptions): boolean => {
 
   if (!options) {
     console.log(NO_OPTIONS_MESSAGE);

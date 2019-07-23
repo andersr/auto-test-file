@@ -1,2 +1,2 @@
 /// <reference types="lodash" />
-export declare const DEFAULT_TEMPLATE: import("lodash").TemplateExecutor;
+export declare const defaultTemplate: import("lodash").TemplateExecutor;

@@ -1,8 +1,8 @@
-import { optionsValid } from './optionsValid';
+import { validateOptions } from './validateOptions';
 import { IConfigOptions } from '../../models';
 import { NO_EXTENSIONS_MESSAGE, NO_DIRECTORY_MESSAGE, UNKNOWN_OPTION_MESSAGE } from '../messages';
 
-describe('optionsValid', () => {
+describe('validateOptions', () => {
   const spyLog = jest.spyOn(console, 'log');
 
   beforeEach(() => {
@@ -14,17 +14,17 @@ describe('optionsValid', () => {
       directory: 'src',
       extensions: ['ts'],
     };
-    expect(optionsValid(VALID_SINGLE_OPTIONS)).toBeTruthy();
+    expect(validateOptions(VALID_SINGLE_OPTIONS)).toBeTruthy();
 
     const VALID_MULTI_OPTIONS: IConfigOptions = {
       directory: 'src',
       extensions: ['ts', 'tsx'],
     };
-    expect(optionsValid(VALID_MULTI_OPTIONS)).toBeTruthy();
+    expect(validateOptions(VALID_MULTI_OPTIONS)).toBeTruthy();
   });
 
   it('it returns false if options are undefined', () => {
-    expect(optionsValid(undefined as unknown as IConfigOptions)).toBeFalsy();
+    expect(validateOptions(undefined as unknown as IConfigOptions)).toBeFalsy();
 
   });
   it('it returns false if there is an _unknown option', () => {
@@ -33,7 +33,7 @@ describe('optionsValid', () => {
       directory: 'src',
       extensions: ['ts', 'tsx'],
     };
-    expect(optionsValid(UNKNOWN_OPTION as IConfigOptions)).toBeFalsy();
+    expect(validateOptions(UNKNOWN_OPTION as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(UNKNOWN_OPTION_MESSAGE);
   });
 
@@ -42,7 +42,7 @@ describe('optionsValid', () => {
     const NO_DIRECTORY: Partial<IConfigOptions> = {
       extensions: ['ts', 'tsx'],
     };
-    expect(optionsValid(NO_DIRECTORY as IConfigOptions)).toBeFalsy();
+    expect(validateOptions(NO_DIRECTORY as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(NO_DIRECTORY_MESSAGE);
 
   });
@@ -51,7 +51,7 @@ describe('optionsValid', () => {
     const NO_EXTENSIONS: Partial<IConfigOptions> = {
       directory: 'src',
     };
-    expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
+    expect(validateOptions(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
     expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
   });
 
@@ -61,7 +61,7 @@ describe('optionsValid', () => {
   //     directory: 'src',
   //     extensions: ['ts'],
   //   };
-  //   expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
+  //   expect(validateOptions(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
   //   expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
   // });
 
@@ -70,7 +70,7 @@ describe('optionsValid', () => {
   //   const NO_EXTENSIONS: Partial<IConfigOptions> = {
   //     directory: 'src',
   //   };
-  //   expect(optionsValid(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
+  //   expect(validateOptions(NO_EXTENSIONS as IConfigOptions)).toBeFalsy();
   //   expect(spyLog).toHaveBeenCalledWith(NO_EXTENSIONS_MESSAGE);
   // });
 

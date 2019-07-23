@@ -10,4 +10,4 @@ var lodash_1 = require("lodash");
 // });
 // `);
 // };
-exports.DEFAULT_TEMPLATE = lodash_1.template("import { <%= fileName %> } from './<%= fileName %>';\n\ndescribe('<%= fileName %>', () => {\n   <%= setSpecItems(specs) %>\n});\n\n");
+exports.defaultTemplate = lodash_1.template("import { <%= fileName %> } from './<%= fileName %>';\n\ndescribe('<%= fileName %>', () => {\n   <%= setSpecItems(specs) %>\n});\n\n");

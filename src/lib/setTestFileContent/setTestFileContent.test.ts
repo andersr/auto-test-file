@@ -16,7 +16,7 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent({ fileName, specs: [] }));
+    const content = removeWhiteSpace(setTestFileContent(fileName, []));
     expect(content).toEqual(expected);
   });
 
@@ -43,7 +43,7 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent({ fileName, specs }));
+    const content = removeWhiteSpace(setTestFileContent(fileName, specs));
     expect(content).toEqual(expected);
   });
 

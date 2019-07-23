@@ -1,5 +1,7 @@
 // created from 'create-ts-index'
 
+export * from './constants';
+export * from './AutoTestFile';
 export * from './createTestFile';
 export * from './fileNameFromPath';
 export * from './fileWatcher';
@@ -8,7 +10,6 @@ export * from './getCliOptions';
 export * from './getSpecsFromInput';
 export * from './handleAddFile';
 export * from './messages';
-export * from './optionsValid';
 export * from './removeExtension';
 export * from './removeQuoteMarks';
 export * from './setExtensionsGlob';
@@ -17,4 +18,4 @@ export * from './setTestFilePath';
 export * from './setTestSpecs';
 export * from './setWatchGlob';
 export * from './testFileTemplates';
-export * from './watcherInit';
+export * from './validateOptions';
