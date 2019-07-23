@@ -31,10 +31,9 @@ var AutoTestFile = /** @class */ (function () {
             ignored: constants_1.DEFAULT_WATCH_IGNORE,
         };
         var handleAdd = this.handleAddFile.bind(this);
-        var handlers = {
+        chokidar_watcher_1.default(setWatchGlob_1.setWatchGlob(this.options), config, {
             add: handleAdd,
-        };
-        chokidar_watcher_1.default(setWatchGlob_1.setWatchGlob(this.options), config, handlers);
+        });
         // TODO: display on actual ready
         console.log("Auto Test File: Watching '" + this.options.directory + "'");
     };

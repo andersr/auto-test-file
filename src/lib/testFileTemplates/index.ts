@@ -1,4 +1,4 @@
 // created from 'create-ts-index'
 
-export * from './defaultTemplate';
+export * from './describeBlock';
 export * from './myTemplate';

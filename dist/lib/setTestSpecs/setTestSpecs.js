@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var removeQuoteMarks_1 = require("../removeQuoteMarks/removeQuoteMarks");
+var lodash_1 = require("lodash");
 var DEFAULT_SPEC = 'does things';
-var setSpecBlock = function (spec) { return "\n  it('" + removeQuoteMarks_1.removeQuoteMarks(spec).trim() + "', () => {\n    expect.hasAssertions();\n  });\n"; };
+exports.SPEC_BLOCK_TEMPLATE = "\nit('<%= spec %>', () => {\n  expect.hasAssertions();\n});\n";
+exports.specBlock = lodash_1.template(exports.SPEC_BLOCK_TEMPLATE);
+var setSpecBlock = function (spec) { return exports.specBlock({ spec: removeQuoteMarks_1.removeQuoteMarks(spec).trim() }); };
 exports.setSpecItems = function (specs) {
     if (specs.length === 0) {
         return setSpecBlock(DEFAULT_SPEC);

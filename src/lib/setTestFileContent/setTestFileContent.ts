@@ -1,6 +1,6 @@
 import { setSpecItems } from '../setTestSpecs';
-import { defaultTemplate } from '../testFileTemplates';
+import { describeBlock } from '../testFileTemplates';
 
 export const setTestFileContent = (fileName: string, specs: string[]): string => {
-  return defaultTemplate({ fileName, specs, setSpecItems });
+  return describeBlock({ fileName, specs, setSpecItems });
 };

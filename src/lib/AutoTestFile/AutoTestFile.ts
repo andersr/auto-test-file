@@ -36,14 +36,12 @@ export class AutoTestFile {
     }
     const handleAdd = this.handleAddFile.bind(this);
 
-    const handlers = {
-      add: handleAdd,
-    };
-
     chokidarWatcher(
       setWatchGlob(this.options),
       config,
-      handlers,
+      {
+        add: handleAdd,
+      },
     );
 
     // TODO: display on actual ready
