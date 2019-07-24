@@ -7,6 +7,7 @@ export * from './fileNameFromPath';
 export * from './fileWatcher';
 export * from './getCliInput';
 export * from './getCliOptions';
+export * from './getConfigFileData';
 export * from './getSpecsFromInput';
 export * from './handleAddFile';
 export * from './messages';

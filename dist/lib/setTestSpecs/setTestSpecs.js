@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var removeQuoteMarks_1 = require("../removeQuoteMarks/removeQuoteMarks");
+// import { removeQuoteMarks } from '../removeQuoteMarks/removeQuoteMarks';
 var lodash_1 = require("lodash");
+var removeQuoteMarks_1 = require("../removeQuoteMarks");
 var DEFAULT_SPEC = 'does things';
 exports.SPEC_BLOCK_TEMPLATE = "\nit('<%= spec %>', () => {\n  expect.hasAssertions();\n});\n";
 exports.specBlock = lodash_1.template(exports.SPEC_BLOCK_TEMPLATE);

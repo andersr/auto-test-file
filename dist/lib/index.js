@@ -11,6 +11,7 @@ __export(require("./fileNameFromPath"));
 __export(require("./fileWatcher"));
 __export(require("./getCliInput"));
 __export(require("./getCliOptions"));
+__export(require("./getConfigFileData"));
 __export(require("./getSpecsFromInput"));
 __export(require("./handleAddFile"));
 __export(require("./messages"));

@@ -15,10 +15,11 @@ var setWatchGlob_1 = require("../setWatchGlob");
 var validateOptions_1 = require("../validateOptions");
 var setTestFileContent_1 = require("../setTestFileContent");
 var AutoTestFile = /** @class */ (function () {
-    function AutoTestFile(options) {
+    function AutoTestFile(options, usingConfigFile) {
         this.options = options;
         this.optionsValid = validateOptions_1.validateOptions(options);
         this.initialFiles = [];
+        this.usingConfigFile = usingConfigFile;
     }
     AutoTestFile.prototype.setInitialFiles = function () {
         // TODO: test with large amount of files
@@ -35,7 +36,12 @@ var AutoTestFile = /** @class */ (function () {
             add: handleAdd,
         });
         // TODO: display on actual ready
-        console.log("Auto Test File: Watching '" + this.options.directory + "'");
+        // TODO: display additional message if using config
+        console.log("Auto Test File: ");
+        if (this.usingConfigFile) {
+            console.log("Using config file.");
+        }
+        console.log("Watching '" + this.options.directory + "'");
     };
     AutoTestFile.prototype.handleAddFile = function (filePath) {
         var _this = this;

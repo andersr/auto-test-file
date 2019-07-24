@@ -15,11 +15,13 @@ export class AutoTestFile {
   public options: IConfigOptions;
   public optionsValid: boolean;
   public initialFiles: string[];
+  public usingConfigFile: boolean;
 
-  constructor(options: IConfigOptions) {
+  constructor(options: IConfigOptions, usingConfigFile: boolean) {
     this.options = options;
     this.optionsValid = validateOptions(options);
     this.initialFiles = [];
+    this.usingConfigFile = usingConfigFile;
   }
 
   public setInitialFiles() {
@@ -45,7 +47,12 @@ export class AutoTestFile {
     );
 
     // TODO: display on actual ready
-    console.log(`Auto Test File: Watching '${this.options.directory}'`);
+    // TODO: display additional message if using config
+    console.log(`Auto Test File: `);
+    if (this.usingConfigFile) {
+      console.log(`Using config file.`);
+    }
+    console.log(`Watching '${this.options.directory}'`);
   }
 
   private handleAddFile(filePath: string) {
