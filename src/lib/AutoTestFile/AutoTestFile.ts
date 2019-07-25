@@ -2,24 +2,26 @@ import chokidarWatcher from 'chokidar-watcher';
 import createFile from 'create-file';
 import glob from 'glob';
 import { IConfigOptions } from '../../models';
-import { DEFAULT_WATCH_IGNORE } from '../constants';
+import { DEFAULT_WATCH_IGNORE, DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../constants';
 import { fileNameFromPath } from '../fileNameFromPath';
 import { getCliInput } from '../getCliInput';
 import { getSpecsFromInput } from '../getSpecsFromInput';
 import { setTestFilePath } from '../setTestFilePath';
 import { setWatchGlob } from '../setWatchGlob';
 import { validateOptions } from '../validateOptions';
-import { setTestFileContent } from '../setTestFileContent';
-
+import { template, TemplateExecutor } from 'lodash';
+import { setSpecItems } from '../setSpecItems';
 export class AutoTestFile {
   public options: IConfigOptions;
   public optionsValid: boolean;
   public initialFiles: string[];
   public usingConfigFile: boolean;
+  // private templatesValid: boolean;
 
   constructor(options: IConfigOptions, usingConfigFile: boolean) {
     this.options = options;
     this.optionsValid = validateOptions(options);
+    // this.templatesValid = validateTemplates();
     this.initialFiles = [];
     this.usingConfigFile = usingConfigFile;
   }
@@ -72,7 +74,7 @@ export class AutoTestFile {
     // TODO: move to external module?
     createFile(
       testFilePath,
-      setTestFileContent(fileName, specs), (err: any) => {
+      this.setTestFileContent(fileName, specs), (err: any) => {
         if (err) {
           console.log('err: ', err);
         } else {
@@ -80,5 +82,19 @@ export class AutoTestFile {
         }
       });
   }
+
+  private setTestFileContent(fileName: string, specs: string[]) {
+    // TODO: compile templates only once, validate templates
+    const describeBlock = template(this.options.describeTemplate ? this.options.describeTemplate : DESCRIBE_BLOCK_TEMPLATE);
+    const specBlock = template(this.options.specTemplate ? this.options.specTemplate : SPEC_BLOCK_TEMPLATE);
+    return describeBlock({ fileName, specs, setSpecItems, specBlock });
+  }
+
+  // private validateTemplates() {
+  //   if (!this.options.describeTemplate || !this.options.specTemplate) {
+  //     return false;
+  //   }
+
+  // }
 
 }

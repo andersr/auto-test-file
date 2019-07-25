@@ -13,11 +13,14 @@ var getSpecsFromInput_1 = require("../getSpecsFromInput");
 var setTestFilePath_1 = require("../setTestFilePath");
 var setWatchGlob_1 = require("../setWatchGlob");
 var validateOptions_1 = require("../validateOptions");
-var setTestFileContent_1 = require("../setTestFileContent");
+var lodash_1 = require("lodash");
+var setSpecItems_1 = require("../setSpecItems");
 var AutoTestFile = /** @class */ (function () {
+    // private templatesValid: boolean;
     function AutoTestFile(options, usingConfigFile) {
         this.options = options;
         this.optionsValid = validateOptions_1.validateOptions(options);
+        // this.templatesValid = validateTemplates();
         this.initialFiles = [];
         this.usingConfigFile = usingConfigFile;
     }
@@ -59,7 +62,7 @@ var AutoTestFile = /** @class */ (function () {
         var fileName = fileNameFromPath_1.fileNameFromPath(filePath);
         var testFilePath = setTestFilePath_1.setTestFilePath(filePath, fileName);
         // TODO: move to external module?
-        create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent(fileName, specs), function (err) {
+        create_file_1.default(testFilePath, this.setTestFileContent(fileName, specs), function (err) {
             if (err) {
                 console.log('err: ', err);
             }
@@ -67,6 +70,12 @@ var AutoTestFile = /** @class */ (function () {
                 console.log("Test file added for '" + fileName + "'");
             }
         });
+    };
+    AutoTestFile.prototype.setTestFileContent = function (fileName, specs) {
+        // TODO: compile templates only once, validate templates
+        var describeBlock = lodash_1.template(this.options.describeTemplate ? this.options.describeTemplate : constants_1.DESCRIBE_BLOCK_TEMPLATE);
+        var specBlock = lodash_1.template(this.options.specTemplate ? this.options.specTemplate : constants_1.SPEC_BLOCK_TEMPLATE);
+        return describeBlock({ fileName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specBlock: specBlock });
     };
     return AutoTestFile;
 }());

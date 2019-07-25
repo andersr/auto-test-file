@@ -9,4 +9,5 @@ export declare class AutoTestFile {
     runFileWatcher(): void;
     private handleAddFile;
     private createTestFile;
+    private setTestFileContent;
 }
