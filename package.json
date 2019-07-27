@@ -46,6 +46,7 @@
     "auto-test-file": "^1.0.2",
     "chokidar-cli": "^1.2.2",
     "create-ts-index": "^1.9.1",
+    "fsify": "^3.0.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.15",
     "prettier": "^1.18.2",

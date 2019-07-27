@@ -3,13 +3,12 @@ export declare class AutoTestFile {
     options: IConfigOptions;
     optionsValid: boolean;
     initialFiles: string[];
-    usingConfigFile: boolean;
     private describeTemplate;
     private specTemplate;
-    constructor(options: IConfigOptions, usingConfigFile: boolean);
-    setInitialFiles(): void;
-    runFileWatcher(): void;
+    constructor(options: IConfigOptions);
+    fileWatcherInit(): void;
+    private setInitialFiles;
+    private runFileWatcher;
     private handleAddFile;
     private createTestFile;
-    private setTestFileContent;
 }

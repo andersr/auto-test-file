@@ -1,15 +1,16 @@
 import { getCliOptions, AutoTestFile } from './lib';
-import { getConfigFileData } from './lib/getConfigFileData';
+import { getConfigFileOptions } from './lib/getConfigFileOptions';
 
-const configFileOptions = getConfigFileData();
+const cliOptions = getCliOptions();
+
+const configFileOptions = getConfigFileOptions(cliOptions.config ? cliOptions.config : undefined);
 
 const options = {
- ...(configFileOptions ? configFileOptions : {}),
- ...getCliOptions(),
+ ...configFileOptions,
+ ...cliOptions,
 };
 
-const atf = new AutoTestFile(options, !!configFileOptions);
+const atf = new AutoTestFile(options);
 if (atf.optionsValid) {
- atf.setInitialFiles();
- atf.runFileWatcher();
+ atf.fileWatcherInit();
 }

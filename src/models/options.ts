@@ -5,4 +5,5 @@ export interface IConfigOptions {
   noSpecInput?: boolean;
   describeTemplate?: string;
   specTemplate?: string;
+  config?: string;
 }

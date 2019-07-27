@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var setTestSpecs_1 = require("../setTestSpecs");
-var testFileTemplates_1 = require("../testFileTemplates");
-exports.setTestFileContent = function (fileName, specs) {
-    return testFileTemplates_1.describeBlock({ fileName: fileName, specs: specs, setSpecItems: setTestSpecs_1.setSpecItems });
+var setSpecItems_1 = require("../setSpecItems");
+exports.setTestFileContent = function (_a) {
+    var fileName = _a.fileName, specs = _a.specs, describeTemplate = _a.describeTemplate, specTemplate = _a.specTemplate;
+    return describeTemplate({ fileName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specTemplate: specTemplate });
 };

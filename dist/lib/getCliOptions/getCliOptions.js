@@ -21,6 +21,11 @@ var OPTION_DEFINITIONS = [
         type: Boolean,
         defaultValue: false,
     },
+    {
+        name: 'config',
+        alias: 'c',
+        type: String,
+    },
 ];
 var CLI_CONFIG = {
     partial: true,

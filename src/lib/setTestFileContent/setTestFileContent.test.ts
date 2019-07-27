@@ -1,4 +1,6 @@
 import { setTestFileContent } from './setTestFileContent';
+import { template } from 'lodash';
+import { DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../constants';
 
 const removeWhiteSpace = (str: string) => str.replace(/\s+/g, ' ').trim();
 
@@ -16,7 +18,15 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent(fileName, []));
+    const describeTemplate = template(DESCRIBE_BLOCK_TEMPLATE);
+    const specTemplate = template(SPEC_BLOCK_TEMPLATE);
+
+    const content = removeWhiteSpace(setTestFileContent({
+      fileName,
+      specs: [],
+      specTemplate,
+      describeTemplate,
+    }));
     expect(content).toEqual(expected);
   });
 
@@ -43,7 +53,15 @@ describe('setTestFileContent', () => {
 
     `);
 
-    const content = removeWhiteSpace(setTestFileContent(fileName, specs));
+    const describeTemplate = template(DESCRIBE_BLOCK_TEMPLATE);
+    const specTemplate = template(SPEC_BLOCK_TEMPLATE);
+
+    const content = removeWhiteSpace(setTestFileContent({
+      fileName,
+      specs,
+      specTemplate,
+      describeTemplate,
+    }));
     expect(content).toEqual(expected);
   });
 

@@ -14,19 +14,28 @@ var setTestFilePath_1 = require("../setTestFilePath");
 var setWatchGlob_1 = require("../setWatchGlob");
 var validateOptions_1 = require("../validateOptions");
 var lodash_1 = require("lodash");
-var setSpecItems_1 = require("../setSpecItems");
+var setTestFileContent_1 = require("../setTestFileContent");
 var AutoTestFile = /** @class */ (function () {
-    function AutoTestFile(options, usingConfigFile) {
+    function AutoTestFile(options) {
         this.options = options;
         this.optionsValid = validateOptions_1.validateOptions(options);
         this.describeTemplate = lodash_1.template(options.describeTemplate ? options.describeTemplate : constants_1.DESCRIBE_BLOCK_TEMPLATE);
         this.specTemplate = lodash_1.template(options.specTemplate ? options.specTemplate : constants_1.SPEC_BLOCK_TEMPLATE);
         this.initialFiles = [];
-        this.usingConfigFile = usingConfigFile;
     }
+    AutoTestFile.prototype.fileWatcherInit = function () {
+        this.setInitialFiles();
+    };
     AutoTestFile.prototype.setInitialFiles = function () {
-        // TODO: test with large amount of files
-        this.initialFiles = glob_1.default.sync(this.options.directory + "/**/*");
+        var _this = this;
+        glob_1.default(this.options.directory + "/**/*", {}, function (err, files) {
+            if (err) {
+                console.log("Error: ", err);
+                return;
+            }
+            _this.initialFiles = files;
+            _this.runFileWatcher();
+        });
     };
     AutoTestFile.prototype.runFileWatcher = function () {
         var config = {
@@ -39,12 +48,7 @@ var AutoTestFile = /** @class */ (function () {
             add: handleAdd,
         });
         // TODO: display on actual ready
-        // TODO: display additional message if using config
-        console.log("Auto Test File: ");
-        if (this.usingConfigFile) {
-            console.log("Using config file.");
-        }
-        console.log("Watching '" + this.options.directory + "'");
+        console.log("Auto Test File: Watching '" + this.options.directory + "'");
     };
     AutoTestFile.prototype.handleAddFile = function (filePath) {
         var _this = this;
@@ -61,8 +65,12 @@ var AutoTestFile = /** @class */ (function () {
     AutoTestFile.prototype.createTestFile = function (filePath, specs) {
         var fileName = fileNameFromPath_1.fileNameFromPath(filePath);
         var testFilePath = setTestFilePath_1.setTestFilePath(filePath, fileName);
-        // TODO: move to external module?
-        create_file_1.default(testFilePath, this.setTestFileContent(fileName, specs), function (err) {
+        create_file_1.default(testFilePath, setTestFileContent_1.setTestFileContent({
+            fileName: fileName,
+            specs: specs,
+            describeTemplate: this.describeTemplate,
+            specTemplate: this.specTemplate
+        }), function (err) {
             if (err) {
                 console.log('err: ', err);
             }
@@ -70,9 +78,6 @@ var AutoTestFile = /** @class */ (function () {
                 console.log("Test file added for '" + fileName + "'");
             }
         });
-    };
-    AutoTestFile.prototype.setTestFileContent = function (fileName, specs) {
-        return this.describeTemplate({ fileName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specBlock: this.specTemplate });
     };
     return AutoTestFile;
 }());

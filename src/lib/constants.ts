@@ -1,3 +1,4 @@
+export const DEFAULT_CONFIG_FILE = `atf.config.js`;
 export const DEFAULT_WATCH_IGNORE = [/node_modules/, /\.test\./, /index\./, /^\.\w+/];
 
 export const DEFAULT_SPEC = 'does things';
@@ -5,7 +6,7 @@ export const DEFAULT_SPEC = 'does things';
 export const DESCRIBE_BLOCK_TEMPLATE = `import { <%= fileName %> } from './<%= fileName %>';
 
 describe('<%= fileName %>', () => {
-   <%= setSpecItems(specs, specBlock) %>
+   <%= setSpecItems(specs, specTemplate) %>
 });
 
 `;
@@ -15,4 +16,3 @@ it('<%= spec %>', () => {
   expect.hasAssertions();
 });
 `;
-

@@ -21,6 +21,11 @@ const OPTION_DEFINITIONS: OptionDefinition[] = [
     type: Boolean,
     defaultValue: false,
   },
+  {
+    name: 'config',
+    alias: 'c',
+    type: String,
+  },
 ];
 
 const CLI_CONFIG: ParseOptions = {

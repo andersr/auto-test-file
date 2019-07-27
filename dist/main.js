@@ -12,11 +12,11 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var lib_1 = require("./lib");
-var getConfigFileData_1 = require("./lib/getConfigFileData");
-var configFileOptions = getConfigFileData_1.getConfigFileData();
-var options = __assign({}, (configFileOptions ? configFileOptions : {}), lib_1.getCliOptions());
-var atf = new lib_1.AutoTestFile(options, !!configFileOptions);
+var getConfigFileOptions_1 = require("./lib/getConfigFileOptions");
+var cliOptions = lib_1.getCliOptions();
+var configFileOptions = getConfigFileOptions_1.getConfigFileOptions(cliOptions.config ? cliOptions.config : undefined);
+var options = __assign({}, configFileOptions, cliOptions);
+var atf = new lib_1.AutoTestFile(options);
 if (atf.optionsValid) {
-    atf.setInitialFiles();
-    atf.runFileWatcher();
+    atf.fileWatcherInit();
 }
