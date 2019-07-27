@@ -4,6 +4,8 @@ export declare class AutoTestFile {
     optionsValid: boolean;
     initialFiles: string[];
     usingConfigFile: boolean;
+    private describeTemplate;
+    private specTemplate;
     constructor(options: IConfigOptions, usingConfigFile: boolean);
     setInitialFiles(): void;
     runFileWatcher(): void;

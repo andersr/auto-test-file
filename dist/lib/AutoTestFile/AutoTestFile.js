@@ -16,11 +16,11 @@ var validateOptions_1 = require("../validateOptions");
 var lodash_1 = require("lodash");
 var setSpecItems_1 = require("../setSpecItems");
 var AutoTestFile = /** @class */ (function () {
-    // private templatesValid: boolean;
     function AutoTestFile(options, usingConfigFile) {
         this.options = options;
         this.optionsValid = validateOptions_1.validateOptions(options);
-        // this.templatesValid = validateTemplates();
+        this.describeTemplate = lodash_1.template(options.describeTemplate ? options.describeTemplate : constants_1.DESCRIBE_BLOCK_TEMPLATE);
+        this.specTemplate = lodash_1.template(options.specTemplate ? options.specTemplate : constants_1.SPEC_BLOCK_TEMPLATE);
         this.initialFiles = [];
         this.usingConfigFile = usingConfigFile;
     }
@@ -72,10 +72,7 @@ var AutoTestFile = /** @class */ (function () {
         });
     };
     AutoTestFile.prototype.setTestFileContent = function (fileName, specs) {
-        // TODO: compile templates only once, validate templates
-        var describeBlock = lodash_1.template(this.options.describeTemplate ? this.options.describeTemplate : constants_1.DESCRIBE_BLOCK_TEMPLATE);
-        var specBlock = lodash_1.template(this.options.specTemplate ? this.options.specTemplate : constants_1.SPEC_BLOCK_TEMPLATE);
-        return describeBlock({ fileName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specBlock: specBlock });
+        return this.describeTemplate({ fileName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specBlock: this.specTemplate });
     };
     return AutoTestFile;
 }());

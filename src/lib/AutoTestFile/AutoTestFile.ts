@@ -16,12 +16,14 @@ export class AutoTestFile {
   public optionsValid: boolean;
   public initialFiles: string[];
   public usingConfigFile: boolean;
-  // private templatesValid: boolean;
+  private describeTemplate: TemplateExecutor;
+  private specTemplate: TemplateExecutor;
 
   constructor(options: IConfigOptions, usingConfigFile: boolean) {
     this.options = options;
     this.optionsValid = validateOptions(options);
-    // this.templatesValid = validateTemplates();
+    this.describeTemplate = template(options.describeTemplate ? options.describeTemplate : DESCRIBE_BLOCK_TEMPLATE);
+    this.specTemplate = template(options.specTemplate ? options.specTemplate : SPEC_BLOCK_TEMPLATE);
     this.initialFiles = [];
     this.usingConfigFile = usingConfigFile;
   }
@@ -84,17 +86,7 @@ export class AutoTestFile {
   }
 
   private setTestFileContent(fileName: string, specs: string[]) {
-    // TODO: compile templates only once, validate templates
-    const describeBlock = template(this.options.describeTemplate ? this.options.describeTemplate : DESCRIBE_BLOCK_TEMPLATE);
-    const specBlock = template(this.options.specTemplate ? this.options.specTemplate : SPEC_BLOCK_TEMPLATE);
-    return describeBlock({ fileName, specs, setSpecItems, specBlock });
+    return this.describeTemplate({ fileName, specs, setSpecItems, specBlock: this.specTemplate });
   }
-
-  // private validateTemplates() {
-  //   if (!this.options.describeTemplate || !this.options.specTemplate) {
-  //     return false;
-  //   }
-
-  // }
 
 }
