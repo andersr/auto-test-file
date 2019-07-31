@@ -21,4 +21,15 @@ describe('getSpecsFromInput', function () {
         ];
         expect(getSpecsFromInput_1.getSpecsFromInput(WITH_SPECS)).toStrictEqual(expected);
     });
+    it('excludes empty specs', function () {
+        var WITH_SPECS = {
+            specs: 'first spec,,second spec,third spec,',
+        };
+        var expected = [
+            'first spec',
+            'second spec',
+            'third spec',
+        ];
+        expect(getSpecsFromInput_1.getSpecsFromInput(WITH_SPECS)).toStrictEqual(expected);
+    });
 });
