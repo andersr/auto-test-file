@@ -19,7 +19,6 @@ var OPTION_DEFINITIONS = [
     {
         name: 'noSpecInput',
         type: Boolean,
-        defaultValue: false,
     },
     {
         name: 'config',

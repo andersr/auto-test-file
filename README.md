@@ -40,33 +40,25 @@ module.exports = {
 
 ### Using Custom Test File Templates
 
-- To override the default templates, add your template to the config file.
-
-* Templates are generated using [Lodash Template](https://lodash.com/docs/4.17.15#template) and .
-  `auto-test-file` uses two templates. These are the default templates for each:
-
-#### Describe Block Template
-
-```javascript
-`import { <%= fileName %> } from './<%= fileName %>';
-
-describe('<%= fileName %>', () => {
-   <%= setSpecItems(specs, specTemplate) %>
-});`;
-```
+- Test files are generated using two templates, the `describeBlock` and the `specBlock` template.
+- The default templates, found in [`/src/lib/templates`](https://github.com/andersr/auto-test-file/blob/next-version/src/lib/templates/), can be overridden by adding a corresponding templated in the config file, eg
 
 ```javascript
 module.exports = {
   directory: "src",
   extensions: ["ts", "tsx"],
-  noSpecInput: true,
   specTemplate: `
-test('<%= spec %>', () => {
-expect.hasAssertions();
-});
+    test('<%= spec %>', () => {
+       expect.hasAssertions();
+    });
 `
 };
 ```
+
+- For templates to function, they must include the necessary properties. See the documentation in each template file for properties that are used.
+
+* Templates are generated using [Lodash Template](https://lodash.com/docs/4.17.15#template) and .
+  `auto-test-file` uses two templates. These are the default templates for each:
 
 ### Config Options
 

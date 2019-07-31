@@ -9,5 +9,5 @@ interface ITestFile {
 }
 
 export const setTestFileContent = ({ fileName, specs, describeTemplate, specTemplate }: ITestFile): string => {
-  return describeTemplate({ fileName, specs, setSpecItems, specTemplate });
+  return describeTemplate({ functionName: fileName, specs, setSpecItems, specTemplate });
 };

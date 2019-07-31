@@ -1,6 +1,6 @@
 import { setTestFileContent } from './setTestFileContent';
 import { template } from 'lodash';
-import { DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../constants';
+import { DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../templates';
 
 const removeWhiteSpace = (str: string) => str.replace(/\s+/g, ' ').trim();
 
