@@ -19,7 +19,11 @@ var OPTION_DEFINITIONS = [
     {
         name: 'noSpecInput',
         type: Boolean,
-        defaultValue: false,
+    },
+    {
+        name: 'config',
+        alias: 'c',
+        type: String,
     },
 ];
 var CLI_CONFIG = {

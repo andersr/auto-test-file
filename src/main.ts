@@ -1,11 +1,16 @@
-import { getCliOptions, optionsValid, watcherInit } from './lib';
-import glob from 'glob';
+import { getCliOptions, AutoTestFile } from './lib';
+import { getConfigFileOptions } from './lib/getConfigFileOptions';
 
-const options = getCliOptions();
+const cliOptions = getCliOptions();
 
-if (optionsValid(options)) {
-  // TODO: confirm that this is a valid directory
-  glob(`${options.directory}/**/*`,
-       (err: Error | null, matches: string[]) => watcherInit({ err, matches, options }));
+const configFileOptions = getConfigFileOptions(cliOptions.config ? cliOptions.config : undefined);
 
+const options = {
+ ...configFileOptions,
+ ...cliOptions,
+};
+
+const atf = new AutoTestFile(options);
+if (atf.optionsValid) {
+ atf.fileWatcherInit();
 }

@@ -1,13 +1,13 @@
-import { setSpecItems } from '../setTestSpecs';
+import { setSpecItems } from '../setSpecItems';
+import { TemplateExecutor } from 'lodash';
 
-export const setTestFileContent = (fileName: string, specs: string[]) => {
+interface ITestFile {
+  fileName: string;
+  specs: string[];
+  describeTemplate: TemplateExecutor;
+  specTemplate: TemplateExecutor;
+}
 
-  return (
-      `import { ${fileName} } from './${fileName}';
-
-describe('${fileName}', () => {
-   ${setSpecItems(specs)}
-});
-
-`);
+export const setTestFileContent = ({ fileName, specs, describeTemplate, specTemplate }: ITestFile): string => {
+  return describeTemplate({ functionName: fileName, specs, setSpecItems, specTemplate });
 };

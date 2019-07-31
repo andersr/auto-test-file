@@ -19,7 +19,11 @@ const OPTION_DEFINITIONS: OptionDefinition[] = [
   {
     name: 'noSpecInput',
     type: Boolean,
-    defaultValue: false,
+  },
+  {
+    name: 'config',
+    alias: 'c',
+    type: String,
   },
 ];
 

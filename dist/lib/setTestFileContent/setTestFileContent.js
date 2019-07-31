@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var setTestSpecs_1 = require("../setTestSpecs");
-exports.setTestFileContent = function (fileName, specs) {
-    return ("import { " + fileName + " } from './" + fileName + "';\n\ndescribe('" + fileName + "', () => {\n   " + setTestSpecs_1.setSpecItems(specs) + "\n});\n\n");
+var setSpecItems_1 = require("../setSpecItems");
+exports.setTestFileContent = function (_a) {
+    var fileName = _a.fileName, specs = _a.specs, describeTemplate = _a.describeTemplate, specTemplate = _a.specTemplate;
+    return describeTemplate({ functionName: fileName, specs: specs, setSpecItems: setSpecItems_1.setSpecItems, specTemplate: specTemplate });
 };
