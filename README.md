@@ -24,9 +24,9 @@
 
 ### Using the config file
 
-`auto-test-file` can be configured either directly via the command line or using a config file. Settings passed into the script command will override any config file settings.
+`auto-test-file` can be configured either directly via the command line or using a config file. Settings passed into the command line will override config file settings.
 
-By default, `auto-test-file` will look for a file named `atf.config.js` in the root of the project directory. The name/location can be changed using the `--config` option.
+By default, `auto-test-file` will look for a file named `atf.config.js` in the root of the project directory. The path to the file can be changed using the `--config` option.
 
 Below is a sample config file:
 
@@ -41,7 +41,7 @@ module.exports = {
 ### Using Custom Test File Templates
 
 - Test files are generated using two templates, the `describeBlock` and the `specBlock` template.
-- The default templates, found in [`/src/lib/templates`](https://github.com/andersr/auto-test-file/blob/next-version/src/lib/templates/), can be overridden by adding a corresponding templated in the config file, eg
+- The default templates, found in [`/src/lib/templates`](https://github.com/andersr/auto-test-file/blob/next-version/src/lib/templates/), can be overridden by adding a corresponding template in the config file, eg
 
 ```javascript
 module.exports = {
@@ -57,8 +57,7 @@ module.exports = {
 
 - For templates to function, they must include the necessary properties. See the documentation in each template file for properties that are used.
 
-* Templates are generated using [Lodash Template](https://lodash.com/docs/4.17.15#template) and .
-  `auto-test-file` uses two templates. These are the default templates for each:
+* Templates use [Lodash Template](https://lodash.com/docs/4.17.15#template) - see their documentation for supported syntax.
 
 ### Config Options
 
