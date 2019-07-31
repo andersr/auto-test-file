@@ -15,4 +15,5 @@ export * from './setSpecItems';
 export * from './setTestFileContent';
 export * from './setTestFilePath';
 export * from './setWatchGlob';
+export * from './templates';
 export * from './validateOptions';

@@ -2,7 +2,7 @@ import chokidarWatcher from 'chokidar-watcher';
 import createFile from 'create-file';
 import glob from 'glob';
 import { IConfigOptions } from '../../models';
-import { DEFAULT_WATCH_IGNORE, DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../constants';
+import { DEFAULT_WATCH_IGNORE } from '../constants';
 import { fileNameFromPath } from '../fileNameFromPath';
 import { getCliInput } from '../getCliInput';
 import { getSpecsFromInput } from '../getSpecsFromInput';
@@ -11,6 +11,7 @@ import { setWatchGlob } from '../setWatchGlob';
 import { validateOptions } from '../validateOptions';
 import { template, TemplateExecutor } from 'lodash';
 import { setTestFileContent } from '../setTestFileContent';
+import { DESCRIBE_BLOCK_TEMPLATE, SPEC_BLOCK_TEMPLATE } from '../templates';
 export class AutoTestFile {
   public options: IConfigOptions;
   public optionsValid: boolean;

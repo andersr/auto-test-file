@@ -19,4 +19,5 @@ __export(require("./setSpecItems"));
 __export(require("./setTestFileContent"));
 __export(require("./setTestFilePath"));
 __export(require("./setWatchGlob"));
+__export(require("./templates"));
 __export(require("./validateOptions"));

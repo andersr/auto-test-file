@@ -15,12 +15,13 @@ var setWatchGlob_1 = require("../setWatchGlob");
 var validateOptions_1 = require("../validateOptions");
 var lodash_1 = require("lodash");
 var setTestFileContent_1 = require("../setTestFileContent");
+var templates_1 = require("../templates");
 var AutoTestFile = /** @class */ (function () {
     function AutoTestFile(options) {
         this.options = options;
         this.optionsValid = validateOptions_1.validateOptions(options);
-        this.describeTemplate = lodash_1.template(options.describeTemplate ? options.describeTemplate : constants_1.DESCRIBE_BLOCK_TEMPLATE);
-        this.specTemplate = lodash_1.template(options.specTemplate ? options.specTemplate : constants_1.SPEC_BLOCK_TEMPLATE);
+        this.describeTemplate = lodash_1.template(options.describeTemplate ? options.describeTemplate : templates_1.DESCRIBE_BLOCK_TEMPLATE);
+        this.specTemplate = lodash_1.template(options.specTemplate ? options.specTemplate : templates_1.SPEC_BLOCK_TEMPLATE);
         this.initialFiles = [];
     }
     AutoTestFile.prototype.fileWatcherInit = function () {
