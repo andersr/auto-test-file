@@ -11,7 +11,7 @@
 export const DESCRIBE_BLOCK_TEMPLATE = `import { <%= functionName %> } from './<%= functionName %>';
 
 describe('<%= functionName %>', () => {
-   <%= setSpecItems(specs, specTemplate) %>
+      <%= setSpecItems(specs, specTemplate) %>
 });
 
 `;

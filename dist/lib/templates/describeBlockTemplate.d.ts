@@ -6,4 +6,4 @@
  * @property {object} specTemplate - template used to generate spec blocks
  *
  */
-export declare const DESCRIBE_BLOCK_TEMPLATE = "import { <%= functionName %> } from './<%= functionName %>';\n\ndescribe('<%= functionName %>', () => {\n   <%= setSpecItems(specs, specTemplate) %>\n});\n\n";
+export declare const DESCRIBE_BLOCK_TEMPLATE = "import { <%= functionName %> } from './<%= functionName %>';\n\ndescribe('<%= functionName %>', () => {\n      <%= setSpecItems(specs, specTemplate) %>\n});\n\n";

@@ -26,7 +26,7 @@ describe('getSpecsFromInput', () => {
 
   it('excludes empty specs', () => {
     const WITH_SPECS = {
-      specs: 'first spec,,second spec,third spec,',
+      specs: 'first spec,    ,second spec,third spec,',
     };
     const expected = [
       'first spec',

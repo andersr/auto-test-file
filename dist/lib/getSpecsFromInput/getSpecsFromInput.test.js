@@ -23,7 +23,7 @@ describe('getSpecsFromInput', function () {
     });
     it('excludes empty specs', function () {
         var WITH_SPECS = {
-            specs: 'first spec,,second spec,third spec,',
+            specs: 'first spec,    ,second spec,third spec,',
         };
         var expected = [
             'first spec',

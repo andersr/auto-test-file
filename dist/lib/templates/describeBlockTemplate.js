@@ -8,4 +8,4 @@
  *
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DESCRIBE_BLOCK_TEMPLATE = "import { <%= functionName %> } from './<%= functionName %>';\n\ndescribe('<%= functionName %>', () => {\n   <%= setSpecItems(specs, specTemplate) %>\n});\n\n";
+exports.DESCRIBE_BLOCK_TEMPLATE = "import { <%= functionName %> } from './<%= functionName %>';\n\ndescribe('<%= functionName %>', () => {\n      <%= setSpecItems(specs, specTemplate) %>\n});\n\n";
