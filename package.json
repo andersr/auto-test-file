@@ -64,6 +64,6 @@
     "command-line-args": "^5.1.1",
     "create-file": "^1.0.1",
     "glob": "^7.1.4",
-    "inquirer": "^6.4.1"
+    "inquirer": "^7.0.1"
   }
 }
