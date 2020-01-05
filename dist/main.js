@@ -15,7 +15,7 @@ var lib_1 = require("./lib");
 var getConfigFileOptions_1 = require("./lib/getConfigFileOptions");
 var cliOptions = lib_1.getCliOptions();
 var configFileOptions = getConfigFileOptions_1.getConfigFileOptions(cliOptions.config ? cliOptions.config : undefined);
-var options = __assign({}, configFileOptions, cliOptions);
+var options = __assign(__assign({}, configFileOptions), cliOptions);
 var atf = new lib_1.AutoTestFile(options);
 if (atf.optionsValid) {
     atf.fileWatcherInit();
