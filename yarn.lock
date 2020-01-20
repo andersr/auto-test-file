@@ -862,6 +862,13 @@ chokidar-watcher@^1.0.1:
   dependencies:
     "@types/chokidar" "^2.1.3"
 
+chokidar-watcher@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/chokidar-watcher/-/chokidar-watcher-1.1.2.tgz#6e9fcde4a5c8dfbc859861cf012bce3bba3ed4d3"
+  integrity sha512-n9zLtGDmAPC2VDBh8wmHnSRQZx/gjQ7Y32wAgO8Y24bgSrokET1DOuOkbHFiPFZl/cm7fH4GI4tOoGxHX+3krw==
+  dependencies:
+    "@types/chokidar" "^2.1.3"
+
 chokidar@*, chokidar@^3.0.1:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.0.2.tgz#0d1cd6d04eb2df0327446188cd13736a3367d681"

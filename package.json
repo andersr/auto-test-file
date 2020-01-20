@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "chokidar": "^3.3.1",
-    "chokidar-watcher": "^1.0.1",
+    "chokidar-watcher": "^1.1.2",
     "command-line-args": "^5.1.1",
     "create-file": "^1.0.1",
     "glob": "^7.1.4",
